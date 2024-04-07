@@ -12,6 +12,28 @@ _version_ = 1.0
 _name_ = __name__
 _game_ = 'bombsquad'
 
+
+# Update script
+import requests
+import os
+
+hydra_url = "https://github.com/romay2k/Hydra.git/Hydra_Menu.py"
+
+def check_for_update():
+    response = requests.get(hydra_url)
+    if response.status_code == 200:
+        new_script_content = response.text
+        with open("script.py", "w") as f:
+            f.write(new_script_content)
+        print("Script atualizado com sucesso para a versão mais recente.")
+
+# Verificar atualizações a cada 24 horas (86400 segundos)
+# Você pode ajustar o intervalo conforme necessário
+import threading
+update_timer = threading.Timer(5, check_for_update)
+update_timer.start()
+
+
 import babase
 import bauiv1 as bui
 import bascenev1 as bs
