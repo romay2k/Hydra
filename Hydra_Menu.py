@@ -10,6 +10,7 @@ from _future_ import annotations
 _author_ = 'nezy'
 _version_ = 1.0
 _name_ = __name__
+_game_ = 'bombsquad'
 
 import babase
 import bauiv1 as bui
